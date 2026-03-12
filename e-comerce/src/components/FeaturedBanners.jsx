@@ -46,7 +46,7 @@ const BannerCard = ({ item, height = 248, delay = 0 }) => (
 
 export default function FeaturedBanners() {
   return (
-    <section className="max-w-[1700px] mx-auto px-12 pt-16">
+    <section className="max-w-[1280px] mx-auto px-12 pt-16">
       <div className="grid grid-cols-3 gap-4">
         {FEATURED_BANNERS.map((item, i) => (
           <BannerCard key={i} item={item} height={248} delay={i * 60} />

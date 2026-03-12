@@ -25,7 +25,7 @@ export default function TrustBar() {
 
   return (
     <div className="bg-gradient-to-br from-neutral-900 to-neutral-950 border-b border-white/5">
-      <div className="max-w-6xl mx-auto grid grid-cols-3">
+      <div className="max-w-5xl mx-auto grid grid-cols-3">
         {items.map((item, index) => (
           <div
             key={item.title}
