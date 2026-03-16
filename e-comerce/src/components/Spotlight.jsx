@@ -110,7 +110,7 @@ export default function Spotlight() {
         {/* ── Right: image ── */}
         <Reveal dir="right" className="flex justify-center">
           <img
-            src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=800&q=92&auto=format"
+            src="public/images/Iphone16.webp"
             alt="Spotlight Phone"
             className="w-full max-w-[520px] object-contain transition-all duration-[900ms] hover:scale-[1.025] hover:-translate-y-2"
             style={{
