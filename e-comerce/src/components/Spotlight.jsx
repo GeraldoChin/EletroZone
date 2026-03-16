@@ -107,17 +107,21 @@ export default function Spotlight() {
 
         </Reveal>
 
-        {/* ── Right: image ── */}
+        {/* ── Right: video ── */}
         <Reveal dir="right" className="flex justify-center">
-          <img
-            src="public/images/Iphone16.webp"
-            alt="Spotlight Phone"
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
             className="w-full max-w-[520px] object-contain transition-all duration-[900ms] hover:scale-[1.025] hover:-translate-y-2"
             style={{
               maxHeight: 540,
               filter: "drop-shadow(0 50px 100px rgba(37,99,235,.22))",
             }}
-          />
+          >
+            <source src="/video/video.mp4" type="video/mp4" />
+          </video>
         </Reveal>
 
       </div>
