@@ -117,7 +117,7 @@ export default function Spotlight() {
             className="w-full max-w-[520px] object-contain transition-all duration-[900ms] hover:scale-[1.025] hover:-translate-y-2"
             style={{
               maxHeight: 540,
-              filter: "drop-shadow(0 50px 100px rgba(37,99,235,.22))",
+              filter: "drop-shadow(0 60px 120px rgba(0,0,20,0.95))",
             }}
           >
             <source src="/video/video.mp4" type="video/mp4" />
