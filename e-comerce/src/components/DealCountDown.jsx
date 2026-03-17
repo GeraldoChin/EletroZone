@@ -167,7 +167,7 @@ export default function DealCountdown() {
               style={{ background: "radial-gradient(circle at 50% 50%, rgba(22,163,74,.12), transparent 70%)" }}
             />
             <img
-              src="https://images.unsplash.com/photo-1614777986387-7b41ec553e46?w=400&q=85&auto=format"
+              src="public/images/headfone.jpg"
               alt="Air Fryer"
               className="w-[270px] h-[270px] object-cover rounded-[20px] block relative z-[1]
                 hover:scale-[1.03] transition-transform duration-500"
