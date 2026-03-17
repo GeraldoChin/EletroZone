@@ -71,7 +71,7 @@ const SectionTitle = ({ children, center = false }) => (
 
 export default function Categories() {
   return (
-    <section className="max-w-[1700px] mx-auto px-12 py-20">
+    <section className=" mx-auto px-12 py-20 bg-white">
 
       {/* Title */}
       <Reveal dir="up">
