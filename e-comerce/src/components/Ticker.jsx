@@ -51,7 +51,7 @@ export default function Ticker() {
           {items.map((word, i) => (
             <span
               key={i}
-              className="px-11 text-[11px] font-semibold text-neutral-700 uppercase tracking-[3px] whitespace-nowrap"
+              className="px-11 text-[11px] font-semibold text-neutral-500 uppercase tracking-[3px] whitespace-nowrap"
             >
               {word}
             </span>

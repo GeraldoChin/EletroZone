@@ -59,54 +59,60 @@ const Reveal = ({ children, dir = "up", delay = 0, className = "" }) => {
   );
 };
 
-const SectionTitle = ({ children, center = false }) => (
-  <div className={center ? "text-center mb-11" : "mb-2"}>
-    <h2 className="text-2xl font-extrabold tracking-tight text-white">{children}</h2>
-    <span
-      className="block h-0.5 w-12 rounded-sm mt-2 bg-gradient-to-r from-white to-white/10"
-      style={center ? { margin: "8px auto 0" } : {}}
-    />
-  </div>
-);
-
 export default function Categories() {
   return (
-    <section className=" mx-auto px-12 py-20 bg-white">
+    <section className="bg-[#f7f7f5] px-10 py-16">
+      <div className="max-w-[1280px] mx-auto">
 
-      {/* Title */}
-      <Reveal dir="up">
-        <SectionTitle center>Choose your Category</SectionTitle>
-        <p className="text-xs text-neutral-600 mt-3.5 max-w-[380px] mx-auto text-center leading-relaxed">
-          Smartphones give quick access to notifications, calls, messages, apps right on your wrist.
-        </p>
-      </Reveal>
+        {/* Header */}
+        <Reveal dir="up">
+          <div className="text-center mb-10">
+            <p className="text-[11px] font-semibold text-neutral-400 uppercase tracking-[0.2em] mb-2">
+              Browse by
+            </p>
+            <h2 className="text-3xl font-extrabold tracking-tight text-gray-900">
+              Choose your Category
+            </h2>
+            <span className="block h-0.5 w-10 rounded-sm mt-3 mx-auto bg-gradient-to-r from-gray-900 to-gray-300" />
+            <p className="text-xs text-gray-400 mt-3 max-w-[340px] mx-auto leading-relaxed">
+              Find exactly what you need — from smart home to audio gear.
+            </p>
+          </div>
+        </Reveal>
 
-      {/* Category circles */}
-      <div className="flex justify-center gap-10 flex-wrap mt-11">
-        {CATEGORIES.map((c, i) => (
-          <Reveal key={c.name} dir="up" delay={i * 70}>
-            <div className="flex flex-col items-center gap-2.5 cursor-pointer group">
+        {/* Category circles */}
+        <div className="flex justify-center gap-12 flex-wrap">
+          {CATEGORIES.map((c, i) => (
+            <Reveal key={c.name} dir="up" delay={i * 70}>
+              <div className="flex flex-col items-center gap-3 cursor-pointer group w-24">
 
-              {/* Ring + image */}
-              <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-white/[0.07]
-                transition-all duration-300
-                group-hover:border-white/30
-                group-hover:shadow-[0_0_0_5px_rgba(255,255,255,0.04)]
-                group-hover:-translate-y-1.5">
-                <img
-                  src={c.img}
-                  alt={c.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
+                {/* Ring + image */}
+                <div
+                  className="w-[88px] h-[88px] rounded-full overflow-hidden
+                    ring-2 ring-gray-200
+                    transition-all duration-300
+                    group-hover:ring-gray-900
+                    group-hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)]
+                    group-hover:-translate-y-2"
+                >
+                  <img
+                    src={c.img}
+                    alt={c.name}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+
+                <div className="text-center">
+                  <p className="text-[12px] font-bold text-gray-800 leading-tight">{c.name}</p>
+                  <p className="text-[10px] text-gray-400 mt-0.5">{c.count}</p>
+                </div>
+
               </div>
+            </Reveal>
+          ))}
+        </div>
 
-              <p className="text-xs font-semibold text-neutral-300">{c.name}</p>
-              <p className="text-[10px] text-neutral-700">{c.count}</p>
-            </div>
-          </Reveal>
-        ))}
       </div>
-
     </section>
   );
 }
