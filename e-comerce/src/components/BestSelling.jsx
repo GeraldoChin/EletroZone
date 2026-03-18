@@ -52,13 +52,13 @@ function WishlistBtn() {
   const [liked, setLiked] = useState(false);
   return (
     <button
-      onClick={() => setLiked(l => !l)}
-      className={`absolute top-2.5 right-2.5 z-10 w-8 h-8 rounded-full
-        flex items-center justify-center border shadow-sm
+      onClick={(e) => { e.stopPropagation(); setLiked(l => !l); }}
+      className={`absolute top-3 right-3 z-10 w-8 h-8 rounded-full
+        flex items-center justify-center
         opacity-0 group-hover:opacity-100 transition-all duration-200
         ${liked
-          ? "bg-red-500 border-red-400 text-white scale-110"
-          : "bg-white border-gray-200 text-gray-400 hover:text-red-500 hover:border-red-300"
+          ? "bg-red-500 text-white scale-110"
+          : "bg-white text-gray-400 hover:text-red-500 shadow-sm"
         }`}
       aria-label="Wishlist"
     >
@@ -71,51 +71,72 @@ function WishlistBtn() {
 }
 
 // ─────────────────────────────────────────────
-// PRODUCT CARD (compact — white theme)
+// PRODUCT CARD
 // ─────────────────────────────────────────────
 function ProductCard({ product, delay = 0 }) {
+  const [inCart, setInCart] = useState(false);
+
   return (
     <Reveal delay={delay}>
       <div className="group relative bg-white border border-gray-100 rounded-2xl overflow-hidden cursor-pointer
-        hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)]
-        hover:border-gray-200 transition-all duration-300">
+        hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(0,0,0,0.09)]
+        hover:border-gray-200 transition-all duration-300
+        shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
 
         {/* Image */}
-        <div className="overflow-hidden relative bg-gray-50">
+        <div className="overflow-hidden relative bg-gray-50" style={{ height: 168 }}>
           <img
             src={product.img}
             alt={product.name}
-            className="w-full object-cover block transition-transform duration-500 group-hover:scale-105"
-            style={{ height: 155 }}
+            className="w-full h-full object-cover block transition-transform duration-500 group-hover:scale-105"
           />
           <WishlistBtn />
 
           {/* Bottom fade */}
           <div className="absolute bottom-0 left-0 right-0 h-10
-            bg-gradient-to-t from-white/50 to-transparent pointer-events-none" />
+            bg-gradient-to-t from-white/60 to-transparent pointer-events-none" />
         </div>
 
         {/* Body */}
-        <div className="p-3 pb-3.5">
-          <h4 className="text-[12px] font-bold leading-tight text-gray-900 mb-1.5 truncate">
+        <div className="px-4 pt-3 pb-4">
+          <h4 className="text-[12px] font-bold leading-tight text-gray-900 mb-2 truncate">
             {product.name}
           </h4>
-          <span className="text-[13px] font-black text-gray-900">{product.price}</span>
 
-          {/* Add to cart */}
-          <button className="hidden group-hover:flex w-full mt-2.5 items-center justify-center gap-1.5
-            bg-gray-900 text-white text-[11px] font-bold py-2 rounded-xl
-            hover:bg-gray-700 transition-colors duration-200 border-0 cursor-pointer">
-            <svg width="11" height="11" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
-            </svg>
-            Add to Cart
-          </button>
+          {/* Price + Cart — same pattern as HighlyRecommended */}
+          <div className="flex items-center justify-between mt-1">
+            <span className="text-[13px] font-black text-gray-900">{product.price}</span>
+
+            <button
+              onClick={() => setInCart(v => !v)}
+              className={`flex items-center gap-1.5 text-[11px] font-bold px-3 py-2 rounded-xl
+                transition-all duration-200 border-0 cursor-pointer
+                ${inCart
+                  ? "bg-emerald-500 text-white"
+                  : "bg-gray-900 text-white hover:bg-gray-700"
+                }`}
+            >
+              {inCart ? (
+                <>
+                  <svg width="11" height="11" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  Added
+                </>
+              ) : (
+                <>
+                  <svg width="11" height="11" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                  </svg>
+                  Add
+                </>
+              )}
+            </button>
+          </div>
         </div>
 
-        {/* Bottom accent */}
-        <div className="absolute bottom-0 left-0 right-0 h-0.5
-          bg-gradient-to-r from-gray-900 via-gray-500 to-gray-900
+        {/* Bottom accent — same as HighlyRecommended */}
+        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gray-900
           scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
 
       </div>
@@ -128,9 +149,9 @@ function ProductCard({ product, delay = 0 }) {
 // ─────────────────────────────────────────────
 function SectionTitle({ children }) {
   return (
-    <div className="mb-2">
-      <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">{children}</h2>
-      <span className="block h-0.5 w-12 rounded-sm mt-2 bg-gradient-to-r from-gray-900 to-gray-200" />
+    <div className="mb-1">
+      <h2 className="text-3xl font-extrabold tracking-tight text-gray-900">{children}</h2>
+      <span className="block h-0.5 w-10 rounded-sm mt-3 bg-gradient-to-r from-gray-900 to-gray-200" />
     </div>
   );
 }
@@ -141,27 +162,27 @@ function SectionTitle({ children }) {
 export default function BestSelling() {
   return (
     <section className="bg-white py-20">
-      <div className="max-w-[1280px] mx-auto px-12">
+      <div className="max-w-[1280px] mx-auto px-10">
 
         {/* Header */}
         <Reveal>
-          <div className="flex justify-between items-end mb-9">
+          <div className="flex justify-between items-end mb-10">
             <div>
               <SectionTitle>Best Selling Products</SectionTitle>
-              <p className="text-xs text-gray-400 mt-2.5 max-w-[400px] leading-relaxed">
+              <p className="text-xs text-gray-400 mt-3 max-w-[380px] leading-relaxed">
                 Our most loved products — chosen by thousands of happy customers.
               </p>
             </div>
             <button className="text-xs font-semibold text-gray-500 bg-white border border-gray-200
-              px-5 py-2 rounded-xl cursor-pointer hover:border-gray-400 hover:text-gray-900
-              transition-colors shadow-sm">
-              View All
+              px-5 py-2.5 rounded-xl cursor-pointer hover:border-gray-400 hover:text-gray-900
+              transition-all duration-200 shadow-sm">
+              View All →
             </button>
           </div>
         </Reveal>
 
         {/* Grid 5 cols */}
-        <div className="grid grid-cols-5 gap-4">
+        <div className="grid grid-cols-5 gap-5">
           {BEST_SELLING.map((p, i) => (
             <ProductCard key={p.name} product={p} delay={(i % 5) * 55} />
           ))}
