@@ -29,27 +29,31 @@ const HERO_CSS = `
 `;
 
 const SLIDES = [
-  {
-    bg:        "#060d18",
-    accent:    "#38bdf8",
-    accentRgb: "56,189,248",
-    tag:       "DISCOUNT UPTO 75% — HURRY UP!",
-    title:     ["Next generation", "Virtual reality"],
-    desc:      "VR is the most immersive way to access notifications, calls and apps — right on your wrist.",
-    bgWord:    "VROT",
-    stats:     [{ val:"4.9★", lbl:"Rating" }, { val:"12K+", lbl:"Sold" }, { val:"−75%", lbl:"Off Today" }],
-    img:       "public/images/airpods2.png",
-    imgAlt:    "VR Headset",
-  },
+{
+  bg:        "#060d18",
+  accent:   "#38bdf8", // laranja JBL 🔥
+  accentRgb: "249,115,22",
+  tag:       "DESCONTO ATÉ 50% — SOM PREMIUM!",
+  title:     ["Som potente JBL", "AirPods sem fio"],
+  desc:      "Desfruta de graves profundos, conexão estável e bateria de longa duração com os novos AirPods JBL — perfeitos para música, chamadas e mobilidade.",
+  bgWord:    "JBL",
+  stats:     [
+    { val:"4.8★", lbl:"Avaliação" },
+    { val:"20K+", lbl:"Vendidos" },
+    { val:"−50%", lbl:"Promoção" }
+  ],
+  img:       "/images/airpods2.png", // ⚠️ corrigido (sem 'public/')
+  imgAlt:    "AirPods JBL",
+},
   {
     bg:        "#0a0514",
     accent:    "#a78bfa",
     accentRgb: "167,139,250",
-    tag:       "UP TO 30% OFF — NEW ARRIVAL",
-    title:     ["The next level", "Smartphone Pro"],
-    desc:      "Cutting-edge camera, all-day battery and lightning-fast performance in your pocket.",
+    tag:       "ATÉ 30% OFF — NOVA CHEGADA",
+    title:     ["O próximo nível", "Smartphone Pro"],
+    desc:      "Câmara de ponta, bateria para o dia todo e desempenho relâmpago no teu bolso.",
     bgWord:    "PRO",
-    stats:     [{ val:"5.0★", lbl:"Rating" }, { val:"8K+", lbl:"Sold" }, { val:"−30%", lbl:"Off Today" }],
+    stats:     [{ val:"5.0★", lbl:"Avaliação" }, { val:"8K+", lbl:"Vendidos" }, { val:"−30%", lbl:"Hoje" }],
     img:       "public/images/headfone2.png",
     imgAlt:    "Smartphone Pro",
   },
@@ -57,13 +61,13 @@ const SLIDES = [
     bg:        "#0f0700",
     accent:    "#f59e0b",
     accentRgb: "245,158,11",
-    tag:       "LIMITED OFFER — STUDIO QUALITY",
-    title:     ["Modern & style", "Headphone"],
-    desc:      "Studio-grade sound with active noise cancellation. Feel every beat like never before.",
+    tag:       "OFERTA LIMITADA — QUALIDADE ESTÚDIO",
+    title:     ["Moderno & com estilo", "Headfones"],
+    desc:      "Som de qualidade estúdio com cancelamento ativo de ruído. Sente cada batida como nunca antes.",
     bgWord:    "SOUND",
-    stats:     [{ val:"4.8★", lbl:"Rating" }, { val:"20K+", lbl:"Sold" }, { val:"−50%", lbl:"Off Today" }],
+    stats:     [{ val:"4.8★", lbl:"Avaliação" }, { val:"20K+", lbl:"Vendidos" }, { val:"−50%", lbl:"Hoje" }],
     img:       "public/images/headfone3.png",
-    imgAlt:    "Headphones",
+    imgAlt:    "Auscultadores",
   },
 ];
 
@@ -117,13 +121,13 @@ export default function HeroSlider() {
       }}
     >
 
-      {/* ── Per-slide background ── */}
+      {/* ── Fundo por slide ── */}
       {SLIDES.map((slide, i) => (
         <div key={i}
           className="absolute inset-0 transition-opacity duration-[1000ms]"
           style={{ opacity: i === cur ? 1 : 0, zIndex: 0, background: slide.bg }}>
 
-          {/* Accent glow — right side */}
+          {/* Brilho accent — lado direito */}
           <div className="absolute pointer-events-none"
             style={{
               width: 800, height: 800,
@@ -133,20 +137,20 @@ export default function HeroSlider() {
               filter: "blur(30px)",
             }} />
 
-          {/* Subtle grid */}
+          {/* Grelha subtil */}
           <div className="absolute inset-0 pointer-events-none"
             style={{
               backgroundImage: "linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px)",
               backgroundSize: "80px 80px",
             }} />
 
-          {/* Left text-area dark vignette */}
+          {/* Vinheta escura lado esquerdo */}
           <div className="absolute inset-0 pointer-events-none"
             style={{
               background: "linear-gradient(to right, rgba(3,3,3,.95) 0%, rgba(3,3,3,.75) 30%, rgba(3,3,3,.30) 55%, transparent 70%)",
             }} />
 
-          {/* Giant bg word */}
+          {/* Palavra de fundo gigante */}
           <div className="absolute pointer-events-none select-none"
             style={{
               right: "3%", top: "50%", transform: "translateY(-50%)",
@@ -159,7 +163,7 @@ export default function HeroSlider() {
         </div>
       ))}
 
-      {/* ── Per-slide content ── */}
+      {/* ── Conteúdo por slide ── */}
       {SLIDES.map((slide, i) => (
         <div key={i}
           className={`absolute inset-0 transition-opacity duration-[800ms]
@@ -168,7 +172,7 @@ export default function HeroSlider() {
               : "opacity-0 z-[2] pointer-events-none"
             }`}
         >
-          {/* 2-col layout */}
+          {/* Layout de 2 colunas */}
           <div
             className="relative h-full grid max-w-[1280px] mx-auto px-14"
             style={{
@@ -178,7 +182,7 @@ export default function HeroSlider() {
             }}
           >
 
-            {/* ── LEFT: text ── */}
+            {/* ── ESQUERDA: texto ── */}
             <div className="flex flex-col justify-center z-10 pr-8">
 
               {/* Tag */}
@@ -191,36 +195,36 @@ export default function HeroSlider() {
                 </span>
               </div>
 
-              {/* Headline */}
+              {/* Título */}
               <h1 className="anim-h1 font-black leading-[1.04] mb-5 text-white"
                 style={{ fontSize: "clamp(42px,5.2vw,72px)", letterSpacing: "-2px" }}>
                 {slide.title[0]}<br />
                 <span style={{ color: "rgba(255,255,255,.38)" }}>{slide.title[1]}</span>
               </h1>
 
-              {/* Description */}
+              {/* Descrição */}
               <p className="anim-desc text-[14px] leading-[1.85] mb-9 max-w-[380px]"
                 style={{ color: "rgba(255,255,255,.35)" }}>
                 {slide.desc}
               </p>
 
-              {/* Buttons */}
+              {/* Botões */}
               <div className="anim-btns flex items-center gap-3.5 mb-10">
                 <button
                   className="text-[13px] font-bold px-8 py-3.5 rounded-[10px] cursor-pointer border-none transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90 active:scale-95"
                   style={{ background: "#fff", color: "#080808" }}>
-                  Buy Now
+                  Comprar Agora
                 </button>
                 <button
                   className="text-[13px] font-semibold px-8 py-3.5 rounded-[10px] cursor-pointer text-white transition-all duration-200 hover:-translate-y-0.5"
                   style={{ background: "rgba(255,255,255,.06)", border: "1px solid rgba(255,255,255,.13)", backdropFilter: "blur(8px)" }}
                   onMouseOver={e => { e.currentTarget.style.background = "rgba(255,255,255,.11)"; e.currentTarget.style.borderColor = "rgba(255,255,255,.28)"; }}
                   onMouseOut={e => { e.currentTarget.style.background = "rgba(255,255,255,.06)"; e.currentTarget.style.borderColor = "rgba(255,255,255,.13)"; }}>
-                  Learn More
+                  Saber Mais
                 </button>
               </div>
 
-              {/* Stats */}
+              {/* Estatísticas */}
               <div className="anim-stats flex items-center gap-8">
                 {slide.stats.map((st, idx) => (
                   <div key={idx}>
@@ -232,9 +236,9 @@ export default function HeroSlider() {
               </div>
             </div>
 
-            {/* ── RIGHT: product image — contained, never cropped ── */}
+            {/* ── DIREITA: imagem do produto ── */}
             <div className="anim-img relative h-full flex items-center justify-center">
-              {/* Subtle glow behind product */}
+              {/* Brilho subtil atrás do produto */}
               <div className="absolute inset-0 pointer-events-none"
                 style={{
                   background: `radial-gradient(ellipse 60% 60% at 50% 55%, rgba(${slide.accentRgb},.12) 0%, transparent 70%)`,
@@ -258,7 +262,7 @@ export default function HeroSlider() {
         </div>
       ))}
 
-      {/* ── Arrow buttons ── */}
+      {/* ── Botões de seta ── */}
       {[
         { dir: "left",  pos: "left-6",  d: "M15 19l-7-7 7-7" },
         { dir: "right", pos: "right-6", d: "M9 5l7 7-7 7"    },
@@ -275,7 +279,7 @@ export default function HeroSlider() {
         </button>
       ))}
 
-      {/* ── Dot nav ── */}
+      {/* ── Navegação por pontos ── */}
       <div className="absolute bottom-8 right-14 z-10 flex items-center gap-2">
         {SLIDES.map((_, i) => (
           <button key={i} onClick={() => goTo(i)}
@@ -287,16 +291,16 @@ export default function HeroSlider() {
         ))}
       </div>
 
-      {/* ── Progress bar ── */}
+      {/* ── Barra de progresso ── */}
       <div className="absolute bottom-0 left-0 right-0 h-[2px] z-10"
         style={{ background: "rgba(255,255,255,.06)" }}>
         <div ref={barRef} className="h-full w-0"
           style={{ background: "linear-gradient(to right, rgba(255,255,255,.3), #fff)" }} />
       </div>
 
-      {/* ── Scroll hint ── */}
+      {/* ── Indicador de scroll ── */}
       <div className="absolute bottom-9 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1.5 pointer-events-none">
-        <span className="text-[9px] tracking-[3px] uppercase" style={{ color: "rgba(255,255,255,.2)" }}>Scroll</span>
+        <span className="text-[9px] tracking-[3px] uppercase" style={{ color: "rgba(255,255,255,.2)" }}>Rolar</span>
         <div className="scroll-hint w-px h-7 rounded-full"
           style={{ background: "linear-gradient(to bottom, rgba(255,255,255,.4), transparent)" }} />
       </div>
