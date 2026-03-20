@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 
 // ─────────────────────────────────────────────
-// DATA
+// DADOS
 // ─────────────────────────────────────────────
 const INSTAGRAM_IMGS = [
   { img: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=400&q=80&auto=format", likes: "2.4k", comments: "38" },
   { img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&q=80&auto=format", likes: "1.8k", comments: "24" },
   { img: "https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?w=400&q=80&auto=format", likes: "3.1k", comments: "57" },
-  { img: "https://images.unsplash.com/photo-1625842268584-8f3296236761?w=400&q=80&auto=format", likes: "980", comments: "15" },
+  { img: "https://images.unsplash.com/photo-1625842268584-8f3296236761?w=400&q=80&auto=format", likes: "980",  comments: "15" },
   { img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80&auto=format", likes: "4.2k", comments: "93" },
   { img: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&q=80&auto=format", likes: "2.7k", comments: "41" },
 ];
@@ -42,7 +42,7 @@ function Reveal({ children, delay = 0, className = "" }) {
 }
 
 // ─────────────────────────────────────────────
-// SECTION TITLE
+// TÍTULO DA SECÇÃO
 // ─────────────────────────────────────────────
 function SectionTitle({ children, center = false }) {
   return (
@@ -59,7 +59,7 @@ function SectionTitle({ children, center = false }) {
 }
 
 // ─────────────────────────────────────────────
-// INSTAGRAM CARD
+// CARD DE INSTAGRAM
 // ─────────────────────────────────────────────
 function InstagramCard({ item, delay = 0 }) {
   const [liked, setLiked] = useState(false);
@@ -70,7 +70,7 @@ function InstagramCard({ item, delay = 0 }) {
 
         <img
           src={item.img}
-          alt="Instagram post"
+          alt="Publicação Instagram"
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
 
@@ -126,7 +126,7 @@ function InstagramCard({ item, delay = 0 }) {
 }
 
 // ─────────────────────────────────────────────
-// INSTAGRAM SHOP
+// LOJA DE INSTAGRAM
 // ─────────────────────────────────────────────
 export default function InstagramShop() {
   return (
@@ -135,7 +135,7 @@ export default function InstagramShop() {
 
         <Reveal>
           <div className="text-center mb-10">
-            <SectionTitle center>Instagram Shop</SectionTitle>
+            <SectionTitle center>Loja no Instagram</SectionTitle>
 
             <a href="#"
               className="inline-flex items-center gap-2 mt-4 text-[13px] font-semibold text-neutral-500 hover:text-black transition">
@@ -143,7 +143,7 @@ export default function InstagramShop() {
             </a>
 
             <p className="text-xs text-neutral-700 mt-2 max-w-[340px] mx-auto">
-              Follow us on Instagram for daily drops.
+              Segue-nos no Instagram para novidades diárias.
             </p>
           </div>
         </Reveal>
@@ -156,8 +156,6 @@ export default function InstagramShop() {
 
         <Reveal delay={200}>
           <div className="flex justify-center mt-8">
-
-            {/* BOTÃO CORRIGIDO */}
             <a href="#"
               className="inline-flex items-center gap-2.5 
               bg-gradient-to-r from-pink-600/40 to-purple-600/40
@@ -171,9 +169,8 @@ export default function InstagramShop() {
                 <circle cx="12" cy="12" r="4"/>
                 <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
               </svg>
-              Follow on Instagram
+              Seguir no Instagram
             </a>
-
           </div>
         </Reveal>
 

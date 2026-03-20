@@ -2,18 +2,18 @@ import Reveal from "./Reveal";
 
 const FEATURED_BANNERS = [
   {
-    label: "New Arrival",
-    title: ["Latest Qpad", "with keyboard"],
+    label: "Nova Chegada",
+    title: ["Último Qpad", "com teclado"],
     img: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&q=85&auto=format",
   },
   {
-    label: "Up to 30% OFF",
-    title: ["And then their", "was pro versions"],
+    label: "Até 30% OFF",
+    title: ["E depois vieram", "as versões Pro"],
     img: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600&q=85&auto=format",
   },
   {
-    label: "Limited",
-    title: ["Modern & Style", "Headphone"],
+    label: "Limitado",
+    title: ["Moderno & com Estilo", "Auscultadores"],
     img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=85&auto=format",
   },
 ];
@@ -36,7 +36,7 @@ const BannerCard = ({ item, height = 248, delay = 0 }) => (
           {item.title[1]}
         </h3>
         <button className="text-xs font-bold bg-white/10 backdrop-blur border border-white/20 text-white px-4 py-1.5 rounded-lg w-fit hover:bg-white/20 transition-colors">
-          Buy Now →
+          Comprar Agora →
         </button>
       </div>
       <div className="absolute inset-0 border border-white/[0.07] rounded-2xl pointer-events-none group-hover:border-white/20 transition-colors" />

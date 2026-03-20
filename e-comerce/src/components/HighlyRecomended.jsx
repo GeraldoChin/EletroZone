@@ -1,17 +1,17 @@
 import { useState, useEffect, useRef } from "react";
 
 // ─────────────────────────────────────────────
-// DATA
+// DADOS
 // ─────────────────────────────────────────────
 const PRODUCTS = [
-  { name:"Smart Phone 12",       cat:"Smart Phone", price:"Tk 3,490",   old:"Tk 4,200",  badge:"sale", stars:5, img:"https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=500&q=85&auto=format" },
-  { name:"Mason Microwave Oven", cat:"Microwave",   price:"Tk 40,925",                   badge:"new",  stars:4, img:"https://images.unsplash.com/photo-1585515320310-259814833e62?w=500&q=85&auto=format" },
-  { name:"Orex Blender",         cat:"Blender",     price:"Tk 165,600",                  badge:"hot",  stars:5, img:"https://images.unsplash.com/photo-1570222094114-d054a817e56b?w=500&q=85&auto=format" },
-  { name:"LF 7 Pro",             cat:"Gaming",      price:"Tk 56,200",  old:"Tk 70,000", badge:"sale", stars:4, img:"https://images.unsplash.com/photo-1486572788966-cfd3df1f5b42?w=500&q=85&auto=format" },
-  { name:"Xenic CC Camera",      cat:"Camera",      price:"Tk 13,800",                   badge:"new",  stars:5, img:"https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=500&q=85&auto=format" },
-  { name:"Mango Router",         cat:"Network",     price:"Tk 56,800",                   badge:"sale", stars:4, img:"https://images.unsplash.com/photo-1606904825846-647eb07f5be2?w=500&q=85&auto=format" },
-  { name:"Olea Water Purifier",  cat:"Purifier",    price:"Tk 58,000",                   badge:"hot",  stars:3, img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=85&auto=format" },
-  { name:'Mackbook Pro 15"',     cat:"Laptop",      price:"Tk 90,300",                   badge:"new",  stars:5, img:"https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&q=85&auto=format" },
+  { name:"Smart Phone 12",        cat:"Smartphone",   price:"Tk 3.490",   old:"Tk 4.200",  badge:"sale", stars:5, img:"https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=500&q=85&auto=format" },
+  { name:"Micro-ondas Mason",     cat:"Micro-ondas",  price:"Tk 40.925",                   badge:"new",  stars:4, img:"https://images.unsplash.com/photo-1585515320310-259814833e62?w=500&q=85&auto=format" },
+  { name:"Liquidificador Orex",   cat:"Liquidificador", price:"Tk 165.600",                badge:"hot",  stars:5, img:"https://images.unsplash.com/photo-1570222094114-d054a817e56b?w=500&q=85&auto=format" },
+  { name:"LF 7 Pro",              cat:"Gaming",       price:"Tk 56.200",  old:"Tk 70.000", badge:"sale", stars:4, img:"https://images.unsplash.com/photo-1486572788966-cfd3df1f5b42?w=500&q=85&auto=format" },
+  { name:"Câmara Xenic CC",       cat:"Câmara",       price:"Tk 13.800",                   badge:"new",  stars:5, img:"https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=500&q=85&auto=format" },
+  { name:"Router Mango",          cat:"Rede",         price:"Tk 56.800",                   badge:"sale", stars:4, img:"https://images.unsplash.com/photo-1606904825846-647eb07f5be2?w=500&q=85&auto=format" },
+  { name:"Purificador Olea",      cat:"Purificador",  price:"Tk 58.000",                   badge:"hot",  stars:3, img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=85&auto=format" },
+  { name:'Macbook Pro 15"',       cat:"Portátil",     price:"Tk 90.300",                   badge:"new",  stars:5, img:"https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&q=85&auto=format" },
 ];
 
 // ─────────────────────────────────────────────
@@ -47,20 +47,17 @@ function Reveal({ children, delay = 0, className = "" }) {
 // BADGE
 // ─────────────────────────────────────────────
 function Badge({ type }) {
-  const styles = {
-    sale: "bg-red-500 text-white",
-    new:  "bg-emerald-500 text-white",
-    hot:  "bg-amber-500 text-white",
-  };
+  const labels = { sale: "promo", new: "novo", hot: "quente" };
+  const styles  = { sale: "bg-red-500 text-white", new: "bg-emerald-500 text-white", hot: "bg-amber-500 text-white" };
   return (
     <span className={`absolute top-3 left-3 z-10 ${styles[type]} text-[10px] font-bold px-2.5 py-1 rounded-full tracking-wider uppercase`}>
-      {type}
+      {labels[type]}
     </span>
   );
 }
 
 // ─────────────────────────────────────────────
-// STARS
+// ESTRELAS
 // ─────────────────────────────────────────────
 function Stars({ count }) {
   return (
@@ -78,7 +75,7 @@ function Stars({ count }) {
 }
 
 // ─────────────────────────────────────────────
-// WISHLIST BUTTON
+// BOTÃO LISTA DE DESEJOS
 // ─────────────────────────────────────────────
 function WishlistBtn() {
   const [liked, setLiked] = useState(false);
@@ -92,7 +89,7 @@ function WishlistBtn() {
           ? "bg-red-500 text-white scale-110"
           : "bg-white text-gray-400 hover:text-red-500 shadow-sm"
         }`}
-      aria-label="Wishlist"
+      aria-label="Lista de desejos"
     >
       <svg width="13" height="13" fill={liked ? "currentColor" : "none"} stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
@@ -103,7 +100,7 @@ function WishlistBtn() {
 }
 
 // ─────────────────────────────────────────────
-// PRODUCT CARD
+// CARD DE PRODUTO
 // ─────────────────────────────────────────────
 function ProductCard({ product, delay = 0 }) {
   const [inCart, setInCart] = useState(false);
@@ -114,7 +111,7 @@ function ProductCard({ product, delay = 0 }) {
         hover:-translate-y-1.5 hover:shadow-[0_16px_48px_rgba(0,0,0,0.10)]
         transition-all duration-300 shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
 
-        {/* Image */}
+        {/* Imagem */}
         <div className="relative overflow-hidden bg-gray-50" style={{ height: 220 }}>
           <img
             src={product.img}
@@ -125,23 +122,23 @@ function ProductCard({ product, delay = 0 }) {
           <WishlistBtn />
         </div>
 
-        {/* Body */}
+        {/* Corpo */}
         <div className="p-4">
 
-          {/* Category */}
+          {/* Categoria */}
           <p className="text-[10px] text-gray-400 uppercase tracking-widest font-medium mb-1.5">
             {product.cat}
           </p>
 
-          {/* Name */}
+          {/* Nome */}
           <h4 className="text-[13px] font-bold text-gray-900 leading-snug mb-2 line-clamp-1">
             {product.name}
           </h4>
 
-          {/* Stars */}
+          {/* Estrelas */}
           <Stars count={product.stars} />
 
-          {/* Price */}
+          {/* Preço */}
           <div className="mt-3 flex items-center justify-between">
             <div className="flex items-baseline gap-1.5">
               <span className="text-[15px] font-black text-gray-900">{product.price}</span>
@@ -150,7 +147,7 @@ function ProductCard({ product, delay = 0 }) {
               )}
             </div>
 
-            {/* Cart button — always visible, compact */}
+            {/* Botão carrinho */}
             <button
               onClick={() => setInCart(v => !v)}
               className={`flex items-center gap-1.5 text-[11px] font-bold px-3 py-2 rounded-xl
@@ -165,14 +162,14 @@ function ProductCard({ product, delay = 0 }) {
                   <svg width="11" height="11" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/>
                   </svg>
-                  Added
+                  Adicionado
                 </>
               ) : (
                 <>
                   <svg width="11" height="11" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
                   </svg>
-                  Add
+                  Adicionar
                 </>
               )}
             </button>
@@ -180,7 +177,7 @@ function ProductCard({ product, delay = 0 }) {
 
         </div>
 
-        {/* Bottom accent on hover */}
+        {/* Accent inferior ao hover */}
         <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gray-900
           scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
 
@@ -190,38 +187,38 @@ function ProductCard({ product, delay = 0 }) {
 }
 
 // ─────────────────────────────────────────────
-// MAIN SECTION
+// SECÇÃO PRINCIPAL
 // ─────────────────────────────────────────────
 export default function HighlyRecommended() {
   return (
     <section className="bg-[#f9f9f9] py-20">
       <div className="max-w-[1280px] mx-auto px-12">
 
-        {/* Header */}
+        {/* Cabeçalho */}
         <Reveal>
           <div className="flex justify-between items-end mb-10">
             <div>
               <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-widest mb-2">
-                Curated picks
+                Seleção especial
               </p>
               <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">
-                Highly Recommended
+                Altamente Recomendados
               </h2>
               <div className="h-[2px] w-10 rounded-sm mt-2.5 bg-gray-900" />
               <p className="text-xs text-gray-400 mt-3 max-w-[380px] leading-relaxed">
-                Handpicked products that shape the way we live and interact with technology.
+                Produtos selecionados a dedo que moldam a forma como vivemos e interagimos com a tecnologia.
               </p>
             </div>
             <button className="text-xs font-semibold text-gray-600
               px-5 py-2.5 rounded-xl cursor-pointer border border-gray-200
               hover:border-gray-900 hover:text-gray-900
               transition-all duration-200 bg-white">
-              View All →
+              Ver Todos →
             </button>
           </div>
         </Reveal>
 
-        {/* Grid */}
+        {/* Grelha */}
         <div className="grid grid-cols-4 gap-5">
           {PRODUCTS.map((p, i) => (
             <ProductCard key={p.name} product={p} delay={(i % 4) * 60} />

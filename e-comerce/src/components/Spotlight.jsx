@@ -32,17 +32,17 @@ const Reveal = ({ children, dir = "up", delay = 0, className = "" }) => {
 };
 
 const SPECS = [
-  { label: "Display",  value: '6.7" OLED'   },
-  { label: "Camera",   value: "48MP Pro"     },
-  { label: "Battery",  value: "5,000 mAh"   },
-  { label: "Storage",  value: "Up to 1TB"   },
+  { label: "Ecrã",       value: '6.7" OLED'    },
+  { label: "Câmara",     value: "48MP Pro"      },
+  { label: "Bateria",    value: "5.000 mAh"    },
+  { label: "Armazenamento", value: "Até 1TB"   },
 ];
 
 export default function Spotlight() {
   return (
     <section className="bg-[#060606] relative overflow-hidden py-24">
 
-      {/* Glow blobs */}
+      {/* Brilhos decorativos */}
       <div
         className="absolute w-[900px] h-[900px] rounded-full pointer-events-none top-[-300px] right-[-100px]"
         style={{ filter: "blur(140px)", background: "radial-gradient(circle,rgba(37,99,235,.1),transparent 70%)" }}
@@ -54,34 +54,34 @@ export default function Spotlight() {
 
       <div className="max-w-[1280px] mx-auto px-12 grid grid-cols-2 items-center gap-20">
 
-        {/* ── Left: info ── */}
+        {/* ── Esquerda: informação ── */}
         <Reveal dir="left">
 
-          {/* Chip */}
+          {/* Badge */}
           <div className="inline-flex items-center gap-1.5 bg-blue-500/10 border border-blue-500/20 rounded-lg px-3.5 py-1.5 text-[11px] font-semibold text-blue-400 mb-5">
             <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
-            Featured Product
+            Produto em Destaque
           </div>
 
-          {/* Title */}
+          {/* Título */}
           <h2
             className="font-black leading-[1.06] tracking-[-2px] mb-4 text-white"
             style={{ fontSize: "clamp(34px,4.2vw,56px)" }}
           >
             Smart Phone 12
             <br />
-            <span className="text-neutral-800 text-[0.68em] font-bold">Pro Edition</span>
+            <span className="text-neutral-800 text-[0.68em] font-bold">Edição Pro</span>
           </h2>
 
-          {/* Description */}
+          {/* Descrição */}
           <p className="text-neutral-600 text-sm leading-relaxed mb-8 max-w-[440px]">
-            The most advanced camera system ever on a smartphone. Cinematic mode
-            with 4K. ProRes video. Action mode. All in Pro.
+            O sistema de câmara mais avançado alguma vez visto num smartphone. Modo Cinemático
+            com 4K. Vídeo ProRes. Modo Ação. Tudo no Pro.
           </p>
 
-          {/* Spec grid */}
+          {/* Grelha de especificações */}
           <div className="grid grid-cols-2 gap-3 mb-8">
             {SPECS.map(({ label, value }) => (
               <div
@@ -94,20 +94,20 @@ export default function Spotlight() {
             ))}
           </div>
 
-          {/* Price + CTA */}
+          {/* Preço + CTA */}
           <div className="flex items-center gap-5">
             <div>
-              <span className="text-3xl font-black text-white">Tk 3,490</span>
-              <span className="text-sm text-neutral-700 line-through ml-2.5">Tk 4,800</span>
+              <span className="text-3xl font-black text-white">Tk 3.490</span>
+              <span className="text-sm text-neutral-700 line-through ml-2.5">Tk 4.800</span>
             </div>
             <button className="bg-white text-black font-black text-[13px] px-7 py-3 rounded-xl border-0 cursor-pointer hover:opacity-85 hover:-translate-y-0.5 transition-all">
-              Add to Cart
+              Adicionar ao Carrinho
             </button>
           </div>
 
         </Reveal>
 
-        {/* ── Right: video ── */}
+        {/* ── Direita: vídeo ── */}
         <Reveal dir="right" className="flex justify-center">
           <video
             autoPlay

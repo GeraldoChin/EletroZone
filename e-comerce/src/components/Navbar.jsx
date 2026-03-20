@@ -41,14 +41,14 @@ const CloseIcon = () => (
 );
 
 const NAV_LINKS = [
-  { label: "Home",     href: "#", active: true },
-  { label: "Shop",     href: "#" },
-  { label: "Products", href: "#", hasDropdown: true },
-  { label: "Pages",    href: "#" },
-  { label: "Contact",  href: "#" },
+  { label: "Início",    href: "#", active: true },
+  { label: "Loja",      href: "#" },
+  { label: "Produtos",  href: "#", hasDropdown: true },
+  { label: "Páginas",   href: "#" },
+  { label: "Contacto",  href: "#" },
 ];
 
-// ── Icon button helper ──────────────────────
+// ── Botão de ícone ──────────────────────
 function IconBtn({ isDark, onClick, children, className = "" }) {
   return (
     <button
@@ -77,7 +77,6 @@ export default function Navbar({ cartCount = 3 }) {
   const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
-    // ✅ Considera "scrolled" só após passar a altura do hero (aprox. 80px)
     const onScroll = () => setScrolled(window.scrollY > 80);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -98,7 +97,7 @@ export default function Navbar({ cartCount = 3 }) {
 
   return (
     <>
-      {/* ── Announcement bar ── */}
+      {/* ── Barra de anúncio ── */}
       <div
         className="fixed top-0 left-0 right-0 z-[60] h-[33px] flex items-center justify-between px-12 text-[11px] transition-transform duration-500 ease-in-out"
         style={{
@@ -108,22 +107,20 @@ export default function Navbar({ cartCount = 3 }) {
         }}
       >
         <span className="text-[#666]">
-          🚚 <span className="text-[#888]">Free delivery</span> on orders over{" "}
+          🚚 <span className="text-[#888]">Envio grátis</span> em compras acima de{" "}
           <strong className="text-[#ccc]">$100</strong>
         </span>
         <div className="flex gap-5">
-          {["Track order", "FAQ", "EN ▾"].map((t) => (
+          {["Rastrear encomenda", "FAQ", "PT ▾"].map((t) => (
             <span key={t} className="text-[#555] cursor-pointer hover:text-[#bbb] transition-colors">{t}</span>
           ))}
         </div>
       </div>
 
-      {/* ── Main navbar ── */}
+      {/* ── Navbar principal ── */}
       <nav
         className="fixed left-0 right-0 z-50 transition-all duration-500 ease-in-out"
         style={{
-          // ✅ Quando no hero: fica abaixo da announcement bar, totalmente transparente
-          // ✅ Quando scrollado: sobe para top-0, fundo branco com sombra
           top:          scrolled ? "0px" : "33px",
           background:   scrolled ? "rgba(255,255,255,0.97)" : "transparent",
           backdropFilter: scrolled ? "blur(20px)" : "none",
@@ -138,10 +135,10 @@ export default function Navbar({ cartCount = 3 }) {
           <a href="#"
             className="text-[25px] font-black tracking-[-1.5px] no-underline shrink-0 transition-colors duration-500"
             style={{ color: isDark ? "#ffffff" : "#0a0a0a" }}>
-            Elexy
+            Elektro
           </a>
 
-          {/* Desktop links */}
+          {/* Links desktop */}
           <div className="hidden md:flex items-center gap-7 text-[13px]">
             {NAV_LINKS.map((link) => (
               <a key={link.label} href={link.href}
@@ -155,12 +152,12 @@ export default function Navbar({ cartCount = 3 }) {
                 {link.label}
                 {link.hasDropdown && <span className="opacity-50 mt-0.5"><ChevronDown /></span>}
 
-                {/* Active underline */}
+                {/* Sublinhado ativo */}
                 {link.active && (
                   <span className="absolute -bottom-1 left-0 right-0 h-px rounded-full transition-all duration-500"
                     style={{ background: isDark ? "rgba(255,255,255,0.5)" : "#0a0a0a" }} />
                 )}
-                {/* Hover underline */}
+                {/* Sublinhado hover */}
                 {!link.active && (
                   <span className="absolute -bottom-1 left-0 right-0 h-px rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
                     style={{ background: isDark ? "rgba(255,255,255,0.3)" : "#cccccc" }} />
@@ -169,10 +166,10 @@ export default function Navbar({ cartCount = 3 }) {
             ))}
           </div>
 
-          {/* Right side */}
+          {/* Lado direito */}
           <div className="flex items-center gap-1">
 
-            {/* Search */}
+            {/* Pesquisa */}
             <div className="hidden md:flex items-center">
               {searchOpen ? (
                 <div className="flex items-center gap-2 rounded-full px-4 py-1.5 transition-all duration-300"
@@ -185,7 +182,7 @@ export default function Navbar({ cartCount = 3 }) {
                     autoFocus type="text" value={searchValue}
                     onChange={e => setSearchValue(e.target.value)}
                     onKeyDown={e => e.key === "Escape" && setSearchOpen(false)}
-                    placeholder="Search products..."
+                    placeholder="Pesquisar produtos..."
                     className="bg-transparent text-[12px] outline-none w-36"
                     style={{ color: isDark ? "#fff" : "#111" }}
                   />
@@ -204,7 +201,7 @@ export default function Navbar({ cartCount = 3 }) {
 
             <IconBtn isDark={isDark} className="hidden md:flex"><HeartIcon /></IconBtn>
 
-            {/* Cart */}
+            {/* Carrinho */}
             <div className="relative">
               <IconBtn isDark={isDark}><CartIcon /></IconBtn>
               {cartCount > 0 && (
@@ -216,7 +213,7 @@ export default function Navbar({ cartCount = 3 }) {
 
             <IconBtn isDark={isDark} className="hidden md:flex"><UserIcon /></IconBtn>
 
-            {/* Divider */}
+            {/* Divisor */}
             <div className="hidden md:block w-px h-5 mx-2 transition-colors duration-500"
               style={{ background: isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)" }} />
 
@@ -227,24 +224,24 @@ export default function Navbar({ cartCount = 3 }) {
                 ? { background: "#ffffff", color: "#0a0a0a" }
                 : { background: "#0a0a0a", color: "#ffffff" }
               }>
-              Shop Now
+              Comprar
               <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/>
               </svg>
             </button>
 
-            {/* Mobile hamburger */}
+            {/* Hamburger mobile */}
             <button
               onClick={() => setMobileOpen(o => !o)}
               className="md:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-transparent border-none cursor-pointer"
               style={{ color: isDark ? "rgba(255,255,255,0.7)" : "#555" }}
-              aria-label="Toggle menu">
+              aria-label="Abrir menu">
               {mobileOpen ? <CloseIcon /> : <MenuIcon />}
             </button>
           </div>
         </div>
 
-        {/* ── Mobile menu ── */}
+        {/* ── Menu mobile ── */}
         <div
           className="md:hidden overflow-hidden transition-all duration-300 ease-in-out"
           style={{
@@ -261,7 +258,7 @@ export default function Navbar({ cartCount = 3 }) {
                 border: `1px solid ${scrolled ? "rgba(0,0,0,0.08)" : "rgba(255,255,255,0.08)"}`,
               }}>
               <span style={{ color: scrolled ? "#999" : "#555" }}><SearchIcon /></span>
-              <input type="text" placeholder="Search products..."
+              <input type="text" placeholder="Pesquisar produtos..."
                 className="bg-transparent text-[13px] outline-none flex-1"
                 style={{ color: scrolled ? "#111" : "#fff" }} />
             </div>
@@ -291,21 +288,19 @@ export default function Navbar({ cartCount = 3 }) {
                   color:      scrolled ? "#555" : "#666",
                   border: `1px solid ${scrolled ? "rgba(0,0,0,0.08)" : "rgba(255,255,255,0.08)"}`,
                 }}>
-                <HeartIcon /> Wishlist
+                <HeartIcon /> Favoritos
               </button>
               <button className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-[12px] font-semibold cursor-pointer border-0 transition-colors"
                 style={{
                   background: scrolled ? "#0a0a0a" : "#ffffff",
                   color:      scrolled ? "#ffffff" : "#0a0a0a",
                 }}>
-                <UserIcon /> Account
+                <UserIcon /> Conta
               </button>
             </div>
           </div>
         </div>
       </nav>
-
-      {/* ✅ SEM spacer aqui — o Hero.jsx deve ter paddingTop: "99px" no conteúdo interno */}
     </>
   );
 }

@@ -1,28 +1,28 @@
 import { useState, useEffect, useRef } from "react";
 
 // ─────────────────────────────────────────────
-// DATA
+// DADOS
 // ─────────────────────────────────────────────
 const TESTIMONIALS = [
   {
     stars: 5,
-    text: "The quality is outstanding. Fast delivery and excellent packaging. Will definitely buy again from Elexy!",
-    name: "John Doe",
-    role: "Verified Buyer",
+    text: "A qualidade é excecional. Entrega rápida e embalagem excelente. Vou definitivamente comprar novamente na Elexy!",
+    name: "João Silva",
+    role: "Comprador Verificado",
     img: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=80&q=80&auto=format",
   },
   {
     stars: 5,
-    text: "Best electronics store I've shopped at online. Competitive prices and customer service is top-notch!",
-    name: "Sarah Miller",
-    role: "Verified Buyer",
+    text: "A melhor loja de eletrónica onde já comprei online. Preços competitivos e atendimento ao cliente de excelência!",
+    name: "Sara Mendes",
+    role: "Compradora Verificada",
     img: "https://images.unsplash.com/photo-1494790108755-2616b612b17c?w=80&q=80&auto=format",
   },
   {
     stars: 4,
-    text: "Great product selection! My MacBook arrived on time and in perfect condition. Highly recommended!",
-    name: "Robert Kim",
-    role: "Verified Buyer",
+    text: "Ótima seleção de produtos! O meu MacBook chegou a tempo e em perfeitas condições. Recomendo vivamente!",
+    name: "Roberto Costa",
+    role: "Comprador Verificado",
     img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=80&auto=format",
   },
 ];
@@ -57,7 +57,7 @@ function Reveal({ children, delay = 0, className = "" }) {
 }
 
 // ─────────────────────────────────────────────
-// STARS
+// ESTRELAS
 // ─────────────────────────────────────────────
 function Stars({ count }) {
   return (
@@ -75,7 +75,7 @@ function Stars({ count }) {
 }
 
 // ─────────────────────────────────────────────
-// QUOTE ICON
+// ÍCONE DE CITAÇÃO
 // ─────────────────────────────────────────────
 function QuoteIcon() {
   return (
@@ -91,7 +91,7 @@ function QuoteIcon() {
 }
 
 // ─────────────────────────────────────────────
-// TESTIMONIAL CARD
+// CARD DE TESTEMUNHO
 // ─────────────────────────────────────────────
 function TestimonialCard({ item, delay = 0 }) {
   return (
@@ -100,22 +100,22 @@ function TestimonialCard({ item, delay = 0 }) {
         hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)]
         hover:border-gray-200 transition-all duration-300 h-full flex flex-col">
 
-        {/* Top accent */}
+        {/* Accent topo */}
         <div className="absolute top-0 left-6 right-6 h-px
           bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
 
         <QuoteIcon />
         <Stars count={item.stars} />
 
-        {/* Text */}
+        {/* Texto */}
         <p className="text-[13px] text-gray-500 leading-[1.85] mb-6 flex-1">
           "{item.text}"
         </p>
 
-        {/* Divider */}
+        {/* Divisor */}
         <div className="h-px bg-gray-100 mb-5" />
 
-        {/* Author */}
+        {/* Autor */}
         <div className="flex items-center gap-3">
           <div className="relative">
             <img
@@ -131,18 +131,18 @@ function TestimonialCard({ item, delay = 0 }) {
             <p className="text-[11px] text-gray-400 mt-0.5">{item.role}</p>
           </div>
 
-          {/* Verified badge */}
+          {/* Badge verificado */}
           <div className="ml-auto flex items-center gap-1 bg-emerald-50 border border-emerald-200
             rounded-full px-2.5 py-1 text-[10px] font-semibold text-emerald-600">
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" strokeWidth="2.5">
               <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/>
             </svg>
-            Verified
+            Verificado
           </div>
         </div>
 
-        {/* Bottom accent on hover */}
+        {/* Accent inferior ao hover */}
         <div className="absolute bottom-0 left-0 right-0 h-0.5 rounded-b-2xl
           bg-gradient-to-r from-gray-900 via-gray-500 to-gray-900
           scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
@@ -153,7 +153,7 @@ function TestimonialCard({ item, delay = 0 }) {
 }
 
 // ─────────────────────────────────────────────
-// SECTION TITLE
+// TÍTULO DA SECÇÃO
 // ─────────────────────────────────────────────
 function SectionTitle({ children, center = false }) {
   return (
@@ -168,27 +168,27 @@ function SectionTitle({ children, center = false }) {
 }
 
 // ─────────────────────────────────────────────
-// TESTIMONIALS
+// TESTEMUNHOS
 // ─────────────────────────────────────────────
 export default function Testimonials() {
   return (
     <section className="bg-gray-50 py-20">
       <div className="max-w-[1280px] mx-auto px-12">
 
-        {/* Header */}
+        {/* Cabeçalho */}
         <Reveal>
           <div className="text-center mb-12">
-            <SectionTitle center>Our Client's Happiness</SectionTitle>
+            <SectionTitle center>A Felicidade dos Nossos Clientes</SectionTitle>
             <p className="text-xs text-gray-400 mt-3.5 max-w-[380px] mx-auto leading-relaxed">
-              Thousands of happy customers trust Elexy for their tech needs.
+              Milhares de clientes satisfeitos confiam na Elexy para as suas necessidades tecnológicas.
             </p>
 
-            {/* Stats */}
+            {/* Estatísticas */}
             <div className="flex justify-center gap-10 mt-8">
               {[
-                { val: "4.9/5", label: "Average Rating"    },
-                { val: "12K+",  label: "Happy Customers"   },
-                { val: "98%",   label: "Satisfaction Rate" },
+                { val: "4.9/5", label: "Avaliação Média"       },
+                { val: "12K+",  label: "Clientes Satisfeitos"  },
+                { val: "98%",   label: "Taxa de Satisfação"    },
               ].map(({ val, label }) => (
                 <div key={label} className="text-center">
                   <p className="text-2xl font-black text-gray-900">{val}</p>

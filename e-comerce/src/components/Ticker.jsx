@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────
-// ANIMATIONS CSS
+// ANIMAÇÕES CSS
 // ─────────────────────────────────────────────
 const ANIM_CSS = `
   @keyframes marquee {
@@ -16,16 +16,16 @@ const ANIM_CSS = `
 `;
 
 // ─────────────────────────────────────────────
-// DATA
+// DADOS
 // ─────────────────────────────────────────────
 const WORDS = [
-  "⚡ Await!",
-  "✦ Smart Shopping!",
-  "✦ Shop More, Save More!",
-  "✦ Unbelievable Discounts!",
-  "✦ Welcome to Elexy!",
-  "✦ Free Shipping Over $100!",
-  "✦ New Arrivals Every Week!",
+  "⚡ Aguarda!",
+  "✦ Compras Inteligentes!",
+  "✦ Compra Mais, Poupa Mais!",
+  "✦ Descontos Incríveis!",
+  "✦ Bem-vindo à Elexy!",
+  "✦ Envio Grátis Acima de $100!",
+  "✦ Novidades Todas as Semanas!",
 ];
 
 // ─────────────────────────────────────────────
@@ -41,7 +41,7 @@ export default function Ticker() {
     return () => document.head.removeChild(style);
   }, []);
 
-  // Duplicate for seamless loop
+  // Duplicar para loop contínuo
   const items = [...WORDS, ...WORDS];
 
   return (

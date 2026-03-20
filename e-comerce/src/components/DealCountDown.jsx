@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
 // ─────────────────────────────────────────────
-// HOOK — COUNTDOWN
+// HOOK — CONTAGEM DECRESCENTE
 // ─────────────────────────────────────────────
 function useCountdown(targetDate) {
   const [time, setTime] = useState({ d: "337", h: "17", m: "48", s: "05" });
@@ -60,7 +60,7 @@ function Reveal({ children, dir = "up", delay = 0, className = "" }) {
 }
 
 // ─────────────────────────────────────────────
-// COUNTDOWN UNIT
+// UNIDADE DE CONTAGEM
 // ─────────────────────────────────────────────
 function CountUnit({ value, label }) {
   return (
@@ -77,7 +77,7 @@ function CountUnit({ value, label }) {
 }
 
 // ─────────────────────────────────────────────
-// DEAL COUNTDOWN
+// OFERTA COM CONTAGEM
 // ─────────────────────────────────────────────
 export default function DealCountdown() {
   const deadline = useRef((() => {
@@ -92,7 +92,7 @@ export default function DealCountdown() {
   return (
     <section className="bg-[#060606] relative overflow-hidden py-24">
 
-      {/* Glow */}
+      {/* Brilhos */}
       <div
         className="absolute w-[700px] h-[700px] rounded-full pointer-events-none top-[-200px] right-[-100px]"
         style={{ filter: "blur(130px)", background: "rgba(22,163,74,.07)" }}
@@ -105,17 +105,17 @@ export default function DealCountdown() {
       <div className="max-w-[1280px] mx-auto px-12 grid items-center gap-16"
         style={{ gridTemplateColumns: "1fr auto auto" }}>
 
-        {/* ── Left: info ── */}
+        {/* ── Esquerda: informação ── */}
         <Reveal dir="left">
 
           {/* Badge */}
           <div className="inline-flex items-center gap-1.5
             bg-green-600/10 border border-green-600/20 rounded-lg
             px-3.5 py-1.5 text-[11px] font-semibold text-green-400 mb-5">
-            ⚡ Hot Deal of the Day
+            ⚡ Oferta do Dia
           </div>
 
-          {/* Title */}
+          {/* Título */}
           <h2
             className="font-black leading-[1.08] tracking-[-1.2px] text-white mb-3"
             style={{ fontSize: "clamp(30px,3.8vw,50px)" }}
@@ -123,16 +123,16 @@ export default function DealCountdown() {
             Passiol Air Fryer
           </h2>
 
-          {/* Description */}
+          {/* Descrição */}
           <p className="text-neutral-600 text-[13px] leading-relaxed mb-7 max-w-[400px]">
-            Limited time offer. Crispy, delicious results with 90% less oil.
-            Most popular kitchen gadget of 2024.
+            Oferta por tempo limitado. Resultados crocantes e deliciosos com 90% menos óleo.
+            O gadget de cozinha mais popular de 2024.
           </p>
 
-          {/* Price */}
+          {/* Preço */}
           <div className="flex items-center gap-4 mb-8">
-            <span className="text-[32px] font-black text-white">Tk 18,500</span>
-            <span className="text-[13px] text-neutral-700 line-through">Tk 32,000</span>
+            <span className="text-[32px] font-black text-white">Tk 18.500</span>
+            <span className="text-[13px] text-neutral-700 line-through">Tk 32.000</span>
             <span className="bg-green-600/15 text-green-400 text-xs font-bold px-3 py-1 rounded-lg">
               -42%
             </span>
@@ -141,25 +141,25 @@ export default function DealCountdown() {
           {/* CTA */}
           <button className="bg-white text-black font-black text-sm px-10 py-3.5 rounded-xl
             border-0 cursor-pointer hover:opacity-85 hover:-translate-y-0.5 transition-all">
-            Shop Now
+            Comprar Agora
           </button>
 
         </Reveal>
 
-        {/* ── Center: countdown ── */}
+        {/* ── Centro: contagem ── */}
         <Reveal dir="up">
           <div className="flex items-center gap-2">
-            <CountUnit value={time.d} label="Days" />
+            <CountUnit value={time.d} label="Dias" />
             <span className="text-3xl font-black text-neutral-800 mb-4">:</span>
-            <CountUnit value={time.h} label="Hours" />
+            <CountUnit value={time.h} label="Horas" />
             <span className="text-3xl font-black text-neutral-800 mb-4">:</span>
-            <CountUnit value={time.m} label="Mins" />
+            <CountUnit value={time.m} label="Min" />
             <span className="text-3xl font-black text-neutral-800 mb-4">:</span>
-            <CountUnit value={time.s} label="Secs" />
+            <CountUnit value={time.s} label="Seg" />
           </div>
         </Reveal>
 
-        {/* ── Right: image ── */}
+        {/* ── Direita: imagem ── */}
         <Reveal dir="right">
           <div className="relative">
             <div

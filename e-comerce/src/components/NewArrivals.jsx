@@ -1,18 +1,18 @@
 import { useState, useEffect, useRef } from "react";
 
 // ─────────────────────────────────────────────
-// DATA
+// DADOS
 // ─────────────────────────────────────────────
 const NEW_ARRIVALS = [
   [
-    { label:"Smart Sound",  title:["Smart Sound with","Smart System"],  img:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=85&auto=format" },
-    { label:"New Arrivals", title:["Virtual Reality","Experience"],      img:"https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?w=600&q=85&auto=format" },
-    { label:"Top Arrivals", title:["CC Camera","Collection"],            img:"https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=600&q=85&auto=format" },
+    { label:"Som Inteligente",  title:["Som Inteligente com","Sistema Avançado"],  img:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=85&auto=format" },
+    { label:"Novidades",        title:["Realidade Virtual","Experiência"],         img:"https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?w=600&q=85&auto=format" },
+    { label:"Destaques",        title:["Câmara CC","Coleção"],                     img:"https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=600&q=85&auto=format" },
   ],
   [
-    { label:"New Arrivals", title:["Smartphone","Collection"],           img:"https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600&q=85&auto=format" },
-    { label:"New Camera",   title:["New Camera","collections"],          img:"https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&q=85&auto=format" },
-    { label:"Top Picks",    title:["Premium Audio","Headphones"],        img:"https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=600&q=85&auto=format" },
+    { label:"Novidades",        title:["Smartphone","Coleção"],                    img:"https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600&q=85&auto=format" },
+    { label:"Nova Câmara",      title:["Nova Câmara","Coleções"],                  img:"https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&q=85&auto=format" },
+    { label:"Escolhas Premium", title:["Áudio Premium","Auscultadores"],           img:"https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=600&q=85&auto=format" },
   ],
 ];
 
@@ -46,7 +46,7 @@ function Reveal({ children, delay = 0, className = "" }) {
 }
 
 // ─────────────────────────────────────────────
-// BANNER CARD
+// CARD BANNER
 // ─────────────────────────────────────────────
 function BannerCard({ item, height = 240, delay = 0 }) {
   return (
@@ -55,14 +55,14 @@ function BannerCard({ item, height = 240, delay = 0 }) {
         className="relative rounded-2xl overflow-hidden cursor-pointer group"
         style={{ height }}
       >
-        {/* Image */}
+        {/* Imagem */}
         <img
           src={item.img}
           alt={item.title[0]}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
 
-        {/* Overlay — bottom-up gradient for better text legibility */}
+        {/* Sobreposição — gradiente de baixo para cima */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent flex flex-col justify-end p-6">
           <p className="text-[10px] font-semibold text-white/45 uppercase tracking-[0.16em] mb-1.5">
             {item.label}
@@ -73,11 +73,11 @@ function BannerCard({ item, height = 240, delay = 0 }) {
           <button className="text-[11px] font-bold bg-white/10 backdrop-blur-sm border border-white/20
             text-white px-4 py-2 rounded-lg w-fit
             hover:bg-white/25 transition-colors duration-200">
-            Buy Now →
+            Comprar Agora →
           </button>
         </div>
 
-        {/* Border */}
+        {/* Borda */}
         <div className="absolute inset-0 border border-white/[0.07] rounded-2xl pointer-events-none
           group-hover:border-white/[0.15] transition-colors duration-300" />
       </div>
@@ -86,7 +86,7 @@ function BannerCard({ item, height = 240, delay = 0 }) {
 }
 
 // ─────────────────────────────────────────────
-// SECTION TITLE
+// TÍTULO DA SECÇÃO
 // ─────────────────────────────────────────────
 function SectionTitle({ children }) {
   return (
@@ -98,36 +98,36 @@ function SectionTitle({ children }) {
 }
 
 // ─────────────────────────────────────────────
-// NEW ARRIVALS
+// NOVAS CHEGADAS
 // ─────────────────────────────────────────────
 export default function NewArrivals() {
   return (
     <section className="max-w-[1280px] mx-auto px-10 pt-20 pb-20">
 
-      {/* Header */}
+      {/* Cabeçalho */}
       <Reveal>
         <div className="flex justify-between items-end mb-10">
           <div>
-            <SectionTitle>New Arrivals</SectionTitle>
+            <SectionTitle>Novas Chegadas</SectionTitle>
             <p className="text-xs text-neutral-500 mt-3 max-w-[340px] leading-relaxed">
-              The latest drops — fresh gear landing every week.
+              Os últimos lançamentos — novidades frescas a chegar todas as semanas.
             </p>
           </div>
           <button className="text-xs font-semibold text-neutral-500 bg-transparent border border-neutral-800
             px-5 py-2.5 rounded-xl cursor-pointer hover:border-neutral-600 hover:text-white transition-all duration-200">
-            View All →
+            Ver Todos →
           </button>
         </div>
       </Reveal>
 
-      {/* Row 1 */}
+      {/* Linha 1 */}
       <div className="grid grid-cols-3 gap-5 mb-5">
         {NEW_ARRIVALS[0].map((item, i) => (
           <BannerCard key={i} item={item} height={240} delay={i * 70} />
         ))}
       </div>
 
-      {/* Row 2 */}
+      {/* Linha 2 */}
       <div className="grid grid-cols-3 gap-5">
         {NEW_ARRIVALS[1].map((item, i) => (
           <BannerCard key={i} item={item} height={220} delay={i * 70} />
